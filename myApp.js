@@ -12,8 +12,11 @@
 // mongoose. Store your Mongo Atlas database URI in the private .env file 
 // as MONGO_URI. Connect to the database using the following syntax:
 //
-// mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
+// mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true });
+const mongoose = require('mongoose');
 
+mongoose.connect("mongodb+srv://fcc-test:<password>@cluster0-nffqc.mongodb.net/test?retryWrites=true&w=majority",
+    {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 /** # SCHEMAS and MODELS #
@@ -41,7 +44,11 @@
 
 // <Your code here >
 
-var Person /* = <Your Model> */
+const Person = mongoose.Schema({
+  name: {type: String, required: true},
+  age: Number,
+  favoriteFoods: [String]
+})
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
