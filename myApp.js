@@ -44,11 +44,13 @@ mongoose.connect("mongodb+srv://fcc-test:<password>@cluster0-nffqc.mongodb.net/t
 
 // <Your code here >
 
-const Person = mongoose.Schema({
+const personSchema = mongoose.Schema({
   name: {type: String, required: true},
   age: Number,
   favoriteFoods: [String]
-})
+});
+
+const Person = mongoose.model("Person", personSchema);
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
